@@ -22,6 +22,7 @@ const App = () => {
             </Layout>
           }
         />
+        <Route path="/sign-in" element={<p>Sign In Page</p>} />
       </Routes>
     </Router>
   );
