@@ -22,7 +22,7 @@ const SignIn = () => {
 
   const mutation = useMutation(apiClient.signIn, {
     onSuccess: async () => {
-      showToast({ message: "User has been sigined", type: "SUCCESS" });
+      showToast({ message: "Sign in Successful!", type: "SUCCESS" });
       await queryClient.invalidateQueries("validateToken");
       navigate("/");
     },
@@ -44,9 +44,7 @@ const SignIn = () => {
           className="border rounded w-full py-1 px-2 font-normal"
           {...register("email", { required: "This field is required" })}
         ></input>
-        {errors.email && (
-          <span className="text-red-500">{errors.email.message}</span>
-        )}
+        {errors.email && <span className="text-red-500">{errors.email.message}</span>}
       </label>
       <label className="text-gray-700  text-sm font-bold flex-1">
         Password
@@ -61,21 +59,16 @@ const SignIn = () => {
             },
           })}
         ></input>
-        {errors.password && (
-          <span className="text-red-500">{errors.password.message}</span>
-        )}
+        {errors.password && <span className="text-red-500">{errors.password.message}</span>}
       </label>
       <span className="flex items-center justify-between">
         <span className="text-sm">
           Not Registered ?{" "}
           <Link to="/register" className="underline">
-            Create and account here
+            Create an account here
           </Link>
         </span>
-        <button
-          type="submit"
-          className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-xl"
-        >
+        <button type="submit" className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500 text-xl">
           Login
         </button>
       </span>
